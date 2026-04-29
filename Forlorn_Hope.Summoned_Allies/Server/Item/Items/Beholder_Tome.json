@@ -1,0 +1,170 @@
+{
+  "TranslationProperties": {
+    "Name": "Tome of the Beholder",
+    "Description": "Summons a friendly Void Eye to assist you in combat"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Icon": "Icons/ItemsGenerated/Beholder_Tome.png",
+  "Quality": "Rare",
+  "ItemLevel": 40,
+  "Model": "Items/Weapons/Spellbook/Grimoire.blockymodel",
+  "Texture": "Items/Weapons/Spellbook/Beholder_Tome_Texture.png",
+  "PlayerAnimationsId": "Spellbook",
+  "IconProperties": {
+    "Scale": 0.745,
+    "Rotation": [
+      45,
+      90,
+      0
+    ],
+    "Translation": [
+      -7.8,
+      -7.8
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging",
+            "Particles": [
+              {
+                "SystemId": "Praetorian_Summon_Energy",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Praetorian_Summon_Ground",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WaitForAnimationToFinish": false
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "SpawnNPC",
+              "Effects": {
+                "WorldSoundEventId": "SFX_MemoryRestored"
+              },
+              "WeightedEntityIds": [
+                {
+                  "Weight": 90,
+                  "Id": "Eye_Void_Ally"
+                }
+              ],
+              "SpawnOffset": {
+                "Y": 2
+              }
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          },
+          "Delay": {
+            "MinDelay": 0
+          }
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging",
+            "Particles": [
+              {
+                "SystemId": "Praetorian_Summon_Energy",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Praetorian_Summon_Ground",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WaitForAnimationToFinish": false
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "SpawnNPC",
+              "Effects": {
+                "WorldSoundEventId": "SFX_MemoryRestored"
+              },
+              "WeightedEntityIds": [
+                {
+                  "Weight": 90,
+                  "Id": "Eye_Void_Ally"
+                }
+              ],
+              "SpawnOffset": {
+                "Y": 2
+              }
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          },
+          "Delay": {
+            "MinDelay": 0
+          }
+        }
+      ]
+    }
+  },
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Voidheart"
+      },
+      {
+        "ItemId": "Ingredient_Leather_Medium",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 30
+      }
+    ],
+    "TimeSeconds": 4
+  },
+  "MaxStack": 1
+}

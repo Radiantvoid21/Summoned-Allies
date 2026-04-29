@@ -1,0 +1,167 @@
+{
+  "TranslationProperties": {
+    "Name": "Shadow Knight's Grimoir",
+    "Description": "Summons an armored skeleton horse mount"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Icon": "Icons/ItemsGenerated/Weapon_Spellbook_Frost.png",
+  "Quality": "Rare",
+  "ItemLevel": 40,
+  "Model": "Items/Weapons/Spellbook/Frost.blockymodel",
+  "Texture": "Items/Weapons/Spellbook/Frost_Texture.png",
+  "PlayerAnimationsId": "Spellbook",
+  "IconProperties": {
+    "Scale": 0.745,
+    "Translation": [
+      -7.8,
+      -7.8
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging",
+            "Particles": [
+              {
+                "SystemId": "Praetorian_Summon_Energy",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Praetorian_Summon_Ground",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WaitForAnimationToFinish": false
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "SpawnNPC",
+              "Effects": {
+                "WorldSoundEventId": "SFX_MemoryRestored"
+              },
+              "WeightedEntityIds": [
+                {
+                  "Weight": 90,
+                  "Id": "Horse_Skeleton_Ally"
+                }
+              ],
+              "SpawnOffset": {
+                "Y": 1
+              }
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          },
+          "Delay": {
+            "MinDelay": 0
+          }
+        }
+      ]
+    },
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging",
+            "Particles": [
+              {
+                "SystemId": "Praetorian_Summon_Energy",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Praetorian_Summon_Ground",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WaitForAnimationToFinish": false
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "SpawnNPC",
+              "Effects": {
+                "WorldSoundEventId": "SFX_MemoryRestored"
+              },
+              "WeightedEntityIds": [
+                {
+                  "Weight": 90,
+                  "Id": "Risen_Knight"
+                }
+              ],
+              "SpawnOffset": {
+                "Y": 1
+              }
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          },
+          "Delay": {
+            "MinDelay": 0
+          }
+        }
+      ]
+    }
+  },
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bone_Fragment",
+        "Quantity": 50
+      },
+      {
+        "ItemId": "Ingredient_Ice_Essence",
+        "Quantity": 30
+      }
+    ],
+    "TimeSeconds": 4
+  },
+  "MaxStack": 1
+}

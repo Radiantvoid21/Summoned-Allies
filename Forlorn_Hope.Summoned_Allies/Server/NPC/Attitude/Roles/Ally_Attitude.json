@@ -1,0 +1,19 @@
+{
+  "Groups": {
+    "Friendly": [
+      "Werewolf_Ally",
+      "Wraith_Ally",
+      "Crawler_Void_Ally",
+      "Player"
+    ],
+    "Hostile": [
+      "Trork",
+      "Undead",
+      "Scarak"
+    ],
+    "Ignore": [
+      "Kweebec",
+      "Void"
+    ]
+  }
+}

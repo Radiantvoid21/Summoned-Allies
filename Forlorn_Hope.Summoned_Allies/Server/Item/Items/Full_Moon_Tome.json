@@ -1,0 +1,162 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Spellbook_Grimoire_SummonTest.name"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Icon": "Icons/ItemsGenerated/Weapon_Spellbook_Grimoire_Purple.png",
+  "Quality": "Developer",
+  "ItemLevel": 40,
+  "Model": "Items/Weapons/Spellbook/Grimoire.blockymodel",
+  "Texture": "Items/Weapons/Spellbook/Grimoire_Purple_Texture.png",
+  "PlayerAnimationsId": "Spellbook",
+  "IconProperties": {
+    "Scale": 0.745,
+    "Translation": [
+      -7.8,
+      -7.8
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging"
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "RunOnBlockTypes",
+              "BlockSets": [
+                "Necromancy_Bones"
+              ],
+              "MaxCount": 5,
+              "Range": 5,
+              "Interactions": {
+                "Interactions": [
+                  {
+                    "Type": "Serial",
+                    "Interactions": [
+                      {
+                        "Type": "SpawnNPC",
+                        "WeightedEntityIds": [
+                          {
+                            "Id": "Risen_Knight",
+                            "Weight": 50
+                          },
+                          {
+                            "Id": "Risen_Gunner",
+                            "Weight": 50
+                          }
+                        ]
+                      },
+                      {
+                        "Type": "DestroyBlock"
+                      },
+                      {
+                        "Type": "ModifyInventory",
+                        "AdjustHeldItemQuantity": -1
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "Simple",
+                "Effects": {
+                  "ItemAnimationId": "CastHurlCharged"
+                }
+              },
+              "Failed": {
+                "Type": "Simple",
+                "Effects": {
+                  "ItemAnimationId": "Interact"
+                }
+              }
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          }
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "Charging",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+            "ItemAnimationId": "CastHurlCharging",
+            "Particles": [
+              {
+                "SystemId": "Praetorian_Summon_Energy",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Praetorian_Summon_Ground",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WaitForAnimationToFinish": false
+          },
+          "AllowIndefiniteHold": true,
+          "HorizontalSpeedMultiplier": 0.8,
+          "CancelOnItemChange": true,
+          "RunTime": 0,
+          "Next": {
+            "0": {
+              "Type": "Simple",
+              "Effects": {
+                "ItemAnimationId": "Interact"
+              }
+            },
+            "0.8": {
+              "Type": "SpawnNPC",
+              "Effects": {
+                "WorldSoundEventId": "SFX_MemoryRestored"
+              },
+              "WeightedEntityIds": [
+                {
+                  "Weight": 90,
+                  "Id": "Werewolf_Ally"
+                }
+              ]
+            }
+          },
+          "Failed": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Interact"
+            }
+          },
+          "Delay": {
+            "MinDelay": 0
+          }
+        }
+      ]
+    }
+  },
+  "MaxStack": 1
+}

@@ -1,0 +1,15 @@
+{
+  "Group": "Forlorn_Hope",
+  "Name": "Hytale Cataclysm",
+  "Version": "1.0.0",
+  "Description": "A port of the L-Ender's Cataclysm mod to Hytale",
+  "Authors": [],
+  "Website": "",
+  "ServerVersion": "2026.02.19-1a311a592",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": []
+}
